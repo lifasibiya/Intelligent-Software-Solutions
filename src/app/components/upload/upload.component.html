@@ -1,0 +1,39 @@
+<div class="container upload">
+
+    <div class="container-fluid header">
+      <h4>Upload Your Documents</h4>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-10">
+        <label>{{file.name}}</label>
+      </div>
+      <div *ngIf="showIcon" (click)="deleteFile()" class="col-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="27.437" height="27.437" viewBox="0 0 27.437 27.437">
+          <path id="Icon_awesome-minus-circle" data-name="Icon awesome-minus-circle" d="M14.281.563A13.719,13.719,0,1,0,28,14.281,13.716,13.716,0,0,0,14.281.563Zm-7.3,15.931a.666.666,0,0,1-.664-.664v-3.1a.666.666,0,0,1,.664-.664h14.6a.666.666,0,0,1,.664.664v3.1a.666.666,0,0,1-.664.664Z" transform="translate(-0.563 -0.563)" fill="red"/>
+        </svg>
+      </div> 
+      <div class="row button-btn">
+        <div class="col-lg-4 col-md-4 col-sm-12 d-grid gap-2">
+          <button class="btn btn-primary" (click)="fileUpload.click()">
+            Upload
+          </button>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 d-grid gap-2">
+          <button class="btn btn-primary" [disabled]="!showIcon" (click)="submit()">Submit</button>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 d-grid gap-2">
+          <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </div> 
+</div>
+
+<input #fileUpload type="file" [hidden]="true" (change)="upload($event)" accept=".pdf">
+
+<div *ngIf="spinner" class="spinner-backdrop">
+</div>
+<div *ngIf="spinner" class="d-flex justify-content-center">
+  <div  class="spinner-border text-warning" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

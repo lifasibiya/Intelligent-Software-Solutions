@@ -1,0 +1,30 @@
+<div class="container popWindow">
+    
+    <div class="container-fluid header">
+      <h1>Dear Client</h1>
+    </div>
+    <div class="container-fluid">
+      <p>Please verify your account by entering the last 4 digits of your ID Number</p>
+    </div>
+    <div class="mb-3">
+      <strong class="form-label">ID Number</strong>
+      <input [(ngModel)]="idnumber" type="text" class="form-control" [maxlength]="4" (focus)="clearErrorMessage()">
+      <small *ngIf="showError" class="text-danger">{{ responseMessage }}</small>
+    </div>
+    <div class="row">
+        <div class="button col-lg-6 col-md-6 col-sm-12 d-grid gap-2">
+            <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+        </div>
+        <div class="button col-lg-6 col-md-6 col-sm-12 d-grid gap-2">
+            <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="spinner" class="spinner-backdrop">
+</div>
+<div *ngIf="spinner" class="d-flex justify-content-center">
+  <div class="spinner-border text-warning" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

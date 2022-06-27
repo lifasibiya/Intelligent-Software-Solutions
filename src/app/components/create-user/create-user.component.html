@@ -1,0 +1,41 @@
+<div class="container popWindow">
+    <div class="container-fluid header">
+        <h1>User details</h1>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Firstname</label>
+        <input [(ngModel)]="user.name" type="text" class="form-control" placeholder="Harry">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Surname</label>
+        <input [(ngModel)]="user.surname" type="text" class="form-control" placeholder="Maguire">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Date of birth</label>
+        <input [(ngModel)]="user.dateOfBirth" type="date" class="form-control" placeholder="yyyy/mm/dd">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ID Number</label>
+        <input [(ngModel)]="user.idnumber" type="text" class="form-control" maxLength="13" [value]="getDateOfBirth()">
+    </div>
+    <div class="row">
+        <div class="button col-lg-6 col-md-6 col-sm-12 d-grid gap-2">
+            <button type="button" class="btn btn-primary" (click)="save()">Register</button>
+        </div>
+        <div class="button col-lg-6 col-md-6 col-sm-12 d-grid gap-2">
+            <button type="button" class="btn btn-primary" (click)="login()">Return to login</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="spinner" class="spinner-backdrop"></div>
+<div *ngIf="spinner" class="d-flex justify-content-center">
+  <div  class="spinner-border text-warning" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+
+
+
+
